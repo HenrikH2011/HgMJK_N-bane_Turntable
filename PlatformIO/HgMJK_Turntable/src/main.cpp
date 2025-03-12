@@ -69,14 +69,14 @@ void moveStepM (){
 
   stepM1.setCurrentPosition(0);
 
-  while ( (analogRead(potMeter_01) < 500) | (analogRead(potMeter_01) > 506) ) {
-    if (analogRead(potMeter_01) < 500){
+  while ( (analogRead(potMeter_01) < 498) | (analogRead(potMeter_01) > 508) ) {
+    if (analogRead(potMeter_01) < 498){
       Serial.println("move stepM CCW");
       stepM1.setSpeed(-analogRead(potMeter_01));
       stepM1.runSpeed();
     } // END if
 
-    if (analogRead(potMeter_01) >506){
+    if (analogRead(potMeter_01) >508){
       Serial.println("move stepM CW");
       stepM1.setSpeed(analogRead(potMeter_01));
       stepM1.runSpeed();
@@ -113,7 +113,10 @@ void loop(){
   Serial.println(analogRead(potMeter_01));
   delay(delay_1);
 
-  moveStepM();
+  while ( (analogRead(potMeter_01) < 495) | (analogRead(potMeter_01) > 510) ) {
+    moveStepM();  
+  }
+  
   delay(delay_2);
 
 
