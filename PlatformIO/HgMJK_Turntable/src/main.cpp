@@ -16,7 +16,11 @@ MCU: Arduino 328 UNO / NANO, MEGA2560
 
 
 ToDo:
-1. 
+1. test analogRead for potMeter_01 = A0
+  - test readings: max=1007, min=0, middel:(1007/2=503,5)=503
+  - set middel pos (stop stepM movement) > 501 && < 505 : to be adjusted in stepM move test
+2. test stepM move according to analogRead potMeter_01
+  - 
 
 
 */
@@ -34,8 +38,8 @@ int speed_CW = 500;   // speed clockwise
 int speed_CCW = -500; // speed counter clokwise
 long stepM1_steps_CW = 1000; // steps to move stepM 
 
-int delay_1 = 1000; // delay in milliseconds
-int delay_2 = 2000;
+int delay_1 = 50; // delay in milliseconds
+int delay_2 = 500;
 
 
 
@@ -65,16 +69,16 @@ void moveStepM (){
 
   stepM1.setCurrentPosition(0);
 
-  while ( (digitalRead(potMeter_01) < 510) && (digitalRead(potMeter_01) > 514) ) {
-    if (digitalRead(potMeter_01) < 510){
+  while ( (analogRead(potMeter_01) < 500) | (analogRead(potMeter_01) > 506) ) {
+    if (analogRead(potMeter_01) < 500){
       Serial.println("move stepM CCW");
-      stepM1.setSpeed(digitalRead(potMeter_01));
+      stepM1.setSpeed(-analogRead(potMeter_01));
       stepM1.runSpeed();
     } // END if
 
-    if (digitalRead(potMeter_01) >514){
+    if (analogRead(potMeter_01) >506){
       Serial.println("move stepM CW");
-      stepM1.setSpeed(digitalRead(potMeter_01));
+      stepM1.setSpeed(analogRead(potMeter_01));
       stepM1.runSpeed();
     } // END if
  
@@ -106,9 +110,12 @@ void setup(){
 void loop(){
 
   Serial.print("potM value: ");
-  Serial.println(digitalRead(potMeter_01));
+  Serial.println(analogRead(potMeter_01));
   delay(delay_1);
-  
+
+  moveStepM();
+  delay(delay_2);
+
 
 } // END void loop
 
