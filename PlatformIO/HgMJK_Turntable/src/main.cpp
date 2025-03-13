@@ -1,5 +1,6 @@
-/* Project: HgMJK, Turntable for N-scale
-Version: RC 1.1.2
+/*
+Project: HgMJK, Turntable for N-scale
+Version: RC 1.2.0
 Dev Code: HH
 Dev Mechanics: SBC
 
@@ -10,9 +11,17 @@ IDE: VS Code + PlatformIO
 
 Hardware:
 MCU: Arduino 328 UNO / NANO, MEGA2560
-1x 28BYJ-48 Stepper motor
+1x 28BYJ-48 Stepper motor 12VDC (IN TEST ONLY 5VDC stepper motors)
 1x ULN2003 motordriver
 1x Potentiometer 10K
+1x LED (Red/Green)
+2x 360R resistors
+1x 9VDC PSU (for MCU board and ULN2003 module (stepM))
+  - IN TEST: 9 >> 5VDC Breadboard PSU
+
+Description:
+This code is intended to be used with 28BYJ-48 Stepper motor 12VDC (IN TEST ONLY 5VDC stepper motors).
+The code is for a turntable for N-scale, controlled by a ULN2003 motordriver and 10K potentiometer.
 
 
 ToDo:
@@ -25,7 +34,9 @@ ToDo:
 3. test with turntable
 
 4. in-prograss: cleanup code and comments
-*/
+5. redraw schematic diagram and publish to github repo: HgMJK_N-bane_Turntable
+
+________________________________________________________________________ */
 
 /* ******************** Code start *********************************** */
 
@@ -85,7 +96,6 @@ void moveStepM (){
       stepM1.setSpeed(steps);
       stepM1.runSpeed();
     } // END if
-
  
   } // END while
 
