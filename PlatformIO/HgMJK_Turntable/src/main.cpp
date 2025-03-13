@@ -1,5 +1,5 @@
 /* Project: HgMJK, Turntable for N-scale
-Version: RC 1.1.1
+Version: RC 1.1.2
 Dev Code: HH
 Dev Mechanics: SBC
 
@@ -40,8 +40,8 @@ int delay_2 = 500;
 // define Pin constants
 const int potMeter_01 = A0; // Potentiometer Pin
 
-const int LED_01 = 2; // LED Pin
-const int LED_02 = 3;
+const int LED_01 = 2; // Green LED Pin - stepM moving
+const int LED_02 = 3; // Red LED Pin - stepM not moving
 
 const int stepM1_IN1 = 8;  // StepMotor Pin
 const int stepM1_IN2 = 9;
@@ -56,8 +56,8 @@ AccelStepper stepM1 = AccelStepper(MotorInterfaceType_1, stepM1_IN1, stepM1_IN3,
 // move stepM ClockWise / CounterClockWise at speed from potentiometer reading
 void moveStepM (){
   Serial.println("Move stepM CW or CCW");
-  digitalWrite(LED_01, HIGH);
-  digitalWrite(LED_02, LOW);
+  digitalWrite(LED_01, HIGH); // Green LED - stepM moving
+  digitalWrite(LED_02, LOW); // Red LED - stepM not moving
   stepM1.enableOutputs(); // enable all stepM output pins
 
   stepM1.setCurrentPosition(0);
@@ -90,18 +90,14 @@ void moveStepM (){
   } // END while
 
   stepM1.disableOutputs(); // disable all stepM output pins
-  digitalWrite(LED_01, LOW);
-  digitalWrite(LED_02, HIGH);
+  digitalWrite(LED_01, LOW); // Green LED
+  digitalWrite(LED_02, HIGH); // Red LED
   
 } // END void moveStepM
 
 void setup(){
   Serial.begin(9600);
 
-  stepM1.disableOutputs();
-  stepM1.setMaxSpeed(500);
-  stepM1.setAcceleration(50);
-  
   pinMode (LED_01, OUTPUT);
   pinMode (LED_02, OUTPUT);
 
@@ -109,6 +105,13 @@ void setup(){
   pinMode (stepM1_IN2, OUTPUT);
   pinMode (stepM1_IN3, OUTPUT);
   pinMode (stepM1_IN4, OUTPUT);
+
+  stepM1.disableOutputs();
+  stepM1.setMaxSpeed(500);
+  stepM1.setAcceleration(50);
+  
+  digitalWrite(LED_01, LOW); // Green LED
+  digitalWrite(LED_02, HIGH); // Red LED
 
 } // END vois setup
 
