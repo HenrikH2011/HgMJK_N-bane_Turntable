@@ -24,7 +24,7 @@ ToDo:
   OK - edit code for move speed. slow to faster in both ways CW and CCW
 3. test with turntable
 
-4. cleanup code and comments
+4. in-prograss: cleanup code and comments
 */
 
 /* ******************** Code start *********************************** */
