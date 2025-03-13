@@ -35,15 +35,12 @@ ToDo:
 
 // define variables
 /* ------------------- Stepper Motor Control Interface ---------------- */
-int speed_CW = 500;   // speed clockwise
-int speed_CCW = -500; // speed counter clokwise
-long stepM1_steps_CW = 1000; // steps to move stepM 
+int speed_CW = 600;   // speed clockwise - NOT IN USE
+int speed_CCW = -600; // speed counter clokwise - NOT IN USE
+long stepM1_steps_CW = 1000; // steps to move stepM - NOT IN USE
 
 int delay_1 = 50; // delay in milliseconds
 int delay_2 = 500;
-
-
-
 
 // define Pin constants
 const int potMeter_01 = A0; // Potentiometer Pin
@@ -119,7 +116,6 @@ void loop(){
   }
   
   delay(delay_2);
-
 
 } // END void loop
 
