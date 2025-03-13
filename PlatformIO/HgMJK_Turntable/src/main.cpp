@@ -1,5 +1,5 @@
 /* Project: HgMJK, Turntable for N-scale
-Version: beta 0.1.1
+Version: RC 1.1.1
 Dev Code: HH
 Dev Mechanics: SBC
 
@@ -24,6 +24,7 @@ ToDo:
   OK - edit code for move speed. slow to faster in both ways CW and CCW
 3. test with turntable
 
+4. cleanup code and comments
 */
 
 /* ******************** Code start *********************************** */
@@ -32,13 +33,7 @@ ToDo:
 #include <Arduino.h>
 #include <AccelStepper.h>
 
-
 // define variables
-/* ------------------- Stepper Motor Control Interface ---------------- */
-int speed_CW = 600;   // speed clockwise - NOT IN USE
-int speed_CCW = -600; // speed counter clokwise - NOT IN USE
-long stepM1_steps_CW = 1000; // steps to move stepM - NOT IN USE
-
 int delay_1 = 50; // delay in milliseconds
 int delay_2 = 500;
 
@@ -58,7 +53,7 @@ const int stepM1_IN4 = 11;
 
 AccelStepper stepM1 = AccelStepper(MotorInterfaceType_1, stepM1_IN1, stepM1_IN3, stepM1_IN2, stepM1_IN4);
 
-// move stepM ClockWise a speed from potentiometer reading
+// move stepM ClockWise / CounterClockWise at speed from potentiometer reading
 void moveStepM (){
   Serial.println("Move stepM CW or CCW");
   digitalWrite(LED_01, HIGH);
@@ -71,7 +66,8 @@ void moveStepM (){
     
     if (analogRead(potMeter_01) >508){
       Serial.println("move stepM CW");
-
+      
+      // read potmeter value and calculate steps
       int16_t steps = -508 + (analogRead(potMeter_01));
       Serial.print("steps: ");
       Serial.println(steps);
@@ -81,6 +77,8 @@ void moveStepM (){
 
     if (analogRead(potMeter_01) < 498){
       Serial.println("move stepM CCW");
+
+      // read potmeter value and calculate steps
       int16_t steps = -(498 - analogRead(potMeter_01));
       Serial.print("steps: ");
       Serial.println(steps);
