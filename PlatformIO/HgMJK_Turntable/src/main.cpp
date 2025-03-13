@@ -1,5 +1,5 @@
 /* Project: HgMJK, Turntable for N-scale
-Version: alpha 0.0.1
+Version: beta 0.1.1
 Dev Code: HH
 Dev Mechanics: SBC
 
@@ -16,13 +16,13 @@ MCU: Arduino 328 UNO / NANO, MEGA2560
 
 
 ToDo:
-1. test analogRead for potMeter_01 = A0
-  - test readings: max=1007, min=0, middel:(1007/2=503,5)=503
-  - set middel pos (stop stepM movement) > 501 | < 505 : to be adjusted in stepM move test
-2. test stepM move according to analogRead potMeter_01
-  - TEST: adjusted potmeter values to: > 498 | < 508 :OK - to be adjusted if needed
-  - edit code for move speed. slow to faster in both ways CW and CCW
-
+1. OK - test analogRead for potMeter_01 = A0
+  OK - test readings: max=1007, min=0, middel:(1007/2=503,5)=503
+  OK - set middel pos (stop stepM movement) > 501 | < 505 : to be adjusted in stepM move test
+2. OK - test stepM move according to analogRead potMeter_01
+  OK - TEST: adjusted potmeter values to: > 498 | < 508 :OK - to be adjusted if needed
+  OK - edit code for move speed. slow to faster in both ways CW and CCW
+3. test with turntable
 
 */
 
