@@ -1,4 +1,4 @@
-/*
+/* THIS CODE IS FOR A ATTINY85 MCU DEV BOARD
 Project: HgMJK, Turntable for N-scale
 Version: RC 1.2.0
 Dev Code: HH
@@ -10,7 +10,7 @@ Library: Accelstepper.h documentation homepage:
 IDE: VS Code + PlatformIO
 
 Hardware:
-MCU: Arduino 328 UNO / NANO, MEGA2560
+MCU: Attiny85
 1x 28BYJ-48 Stepper motor 12VDC (IN TEST ONLY 5VDC stepper motors)
 1x ULN2003 motordriver
 1x Potentiometer 10K
@@ -25,16 +25,17 @@ The code is for a turntable for N-scale, controlled by a ULN2003 motordriver and
 
 
 ToDo:
-1. OK - test analogRead for potMeter_01 = A0
-  OK - test readings: max=1007, min=0, middel:(1007/2=503,5)=503
-  OK - set middel pos (stop stepM movement) > 501 | < 505 : to be adjusted in stepM move test
-2. OK - test stepM move according to analogRead potMeter_01
-  OK - TEST: adjusted potmeter values to: > 498 | < 508 :OK - to be adjusted if needed
-  OK - edit code for move speed. slow to faster in both ways CW and CCW
-3. test with turntable
+ - edit pin connection to match Attiny85 pin's
+ - test analogRead for potMeter_01 = A0
+ - test readings: max=1007, min=0, middel:(1007/2=503,5)=503
+ - set middel pos (stop stepM movement) > 501 | < 505 : to be adjusted in stepM move test
+ - test stepM move according to analogRead potMeter_01
+ - TEST: adjusted potmeter values to: > 498 | < 508 :OK - to be adjusted if needed
+ - edit code for move speed. slow to faster in both ways CW and CCW
+ -  test with turntable
 
-4. in-prograss: cleanup code and comments
-5. redraw schematic diagram and publish to github repo: HgMJK_N-bane_Turntable
+ - in-prograss: cleanup code and comments
+ - redraw schematic diagram and publish to github repo: HgMJK_N-bane_Turntable
 
 ________________________________________________________________________ */
 
@@ -51,8 +52,8 @@ int delay_2 = 500;
 // define Pin constants
 const int potMeter_01 = A0; // Potentiometer Pin
 
-const int LED_01 = 2; // Red LED Pin - stepM not moving
-const int LED_02 = 3; // Green LED Pin - stepM moving 
+const int LED_01 = 1; // Green LED Pin - stepM moving
+//const int LED_02 = 3; // Red LED Pin - stepM not moving
 
 const int stepM1_IN1 = 8;  // StepMotor Pin
 const int stepM1_IN2 = 9;

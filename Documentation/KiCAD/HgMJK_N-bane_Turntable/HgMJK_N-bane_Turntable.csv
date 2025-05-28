@@ -1,0 +1,7 @@
+"Reference","Value","Footprint","Datasheet","Qty","DNP","Exclude from BOM","Exclude from Board"
+"A1","Arduino_Nano_v3.x","Module:Arduino_Nano","http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf","1","","",""
+"D1","LED_Dual_AAK","","~","1","","",""
+"M1","Stepper_Motor_unipolar_5pin","","http://www.infineon.com/dgdl/Application-Note-TLE8110EE_driving_UniPolarStepperMotor_V1.1.pdf?fileId=db3a30431be39b97011be5d0aa0a00b0","1","","",""
+"R1,R2","10K","","~","2","","",""
+"RV1","R_Potentiometer","","~","1","","",""
+"U1","ULN2003","","http://www.ti.com/lit/ds/symlink/uln2003a.pdf","1","","",""
