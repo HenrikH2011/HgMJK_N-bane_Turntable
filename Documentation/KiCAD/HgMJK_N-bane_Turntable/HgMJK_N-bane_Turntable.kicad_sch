@@ -3074,6 +3074,16 @@
 	)
 	(wire
 		(pts
+			(xy 85.09 116.84) (xy 85.09 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "968c046f-7906-41b7-93da-56955793f823")
+	)
+	(wire
+		(pts
 			(xy 125.73 125.73) (xy 149.86 125.73)
 		)
 		(stroke
@@ -3483,6 +3493,72 @@
 			(project ""
 				(path "/d6299ce4-e04e-4458-87ef-12742b562b87"
 					(reference "RV1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 85.09 119.38 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2ab2ae3e-eb8c-48af-a611-d9f321df0fd1")
+		(property "Reference" "#PWR07"
+			(at 85.09 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 85.09 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 85.09 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 85.09 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9c19f9a4-1b71-47ed-b21b-e07cd01fcad6")
+		)
+		(instances
+			(project "HgMJK_N-bane_Turntable"
+				(path "/d6299ce4-e04e-4458-87ef-12742b562b87"
+					(reference "#PWR07")
 					(unit 1)
 				)
 			)

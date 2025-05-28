@@ -10,7 +10,7 @@ Library: Accelstepper.h documentation homepage:
 IDE: VS Code + PlatformIO
 
 Hardware:
-MCU: Arduino 328 UNO / NANO, MEGA2560
+MCU: Arduino 328 UNO / NANO atmega328P New bootloader
 1x 28BYJ-48 Stepper motor 12VDC (IN TEST ONLY 5VDC stepper motors)
 1x ULN2003 motordriver
 1x Potentiometer 10K
@@ -73,24 +73,24 @@ void moveStepM (){
 
   stepM1.setCurrentPosition(0);
 
-  while ( (analogRead(potMeter_01) < 498) | (analogRead(potMeter_01) > 508) ) {
+  while ( (analogRead(potMeter_01) < 490) | (analogRead(potMeter_01) > 520) ) {
     
-    if (analogRead(potMeter_01) >508){
+    if (analogRead(potMeter_01) >520){
       Serial.println("move stepM CW");
       
       // read potmeter value and calculate steps
-      int16_t steps = -508 + (analogRead(potMeter_01));
+      int16_t steps = -520 + (analogRead(potMeter_01));
       Serial.print("steps: ");
       Serial.println(steps);
       stepM1.setSpeed(steps);      
       stepM1.runSpeed();
     } // END if
 
-    if (analogRead(potMeter_01) < 498){
+    if (analogRead(potMeter_01) < 490){
       Serial.println("move stepM CCW");
 
       // read potmeter value and calculate steps
-      int16_t steps = -(498 - analogRead(potMeter_01));
+      int16_t steps = -(490 - analogRead(potMeter_01));
       Serial.print("steps: ");
       Serial.println(steps);
       stepM1.setSpeed(steps);
@@ -131,7 +131,7 @@ void loop(){
   Serial.println(analogRead(potMeter_01));
   delay(delay_1);
 
-  while ( (analogRead(potMeter_01) < 495) | (analogRead(potMeter_01) > 510) ) {
+  while ( (analogRead(potMeter_01) < 490) | (analogRead(potMeter_01) > 520) ) {
     moveStepM();  
   }
   
