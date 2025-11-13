@@ -6913,7 +6913,7 @@
 	)
 	(symbol
 		(lib_id "Motor:Stepper_Motor_unipolar_5pin")
-		(at 185.42 66.04 0)
+		(at 201.93 123.19 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6921,7 +6921,7 @@
 		(dnp no)
 		(uuid "7700c7db-f005-47eb-b2ff-dd5b17074547")
 		(property "Reference" "M1"
-			(at 190.5 63.792 0)
+			(at 207.01 120.942 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6930,7 +6930,7 @@
 			)
 		)
 		(property "Value" "Stepper_Motor_unipolar_5pin"
-			(at 178.308 71.12 0)
+			(at 194.818 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6939,7 +6939,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 185.674 66.294 0)
+			(at 202.184 123.444 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6948,7 +6948,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.infineon.com/dgdl/Application-Note-TLE8110EE_driving_UniPolarStepperMotor_V1.1.pdf?fileId=db3a30431be39b97011be5d0aa0a00b0"
-			(at 185.674 66.294 0)
+			(at 202.184 123.444 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6957,7 +6957,7 @@
 			)
 		)
 		(property "Description" "5-wire unipolar stepper motor"
-			(at 185.42 66.04 0)
+			(at 201.93 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
