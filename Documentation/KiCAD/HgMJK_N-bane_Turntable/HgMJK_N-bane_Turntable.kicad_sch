@@ -4,6 +4,13 @@
 	(generator_version "9.0")
 	(uuid "d6299ce4-e04e-4458-87ef-12742b562b87")
 	(paper "A4")
+	(title_block
+		(title "Pot-meter controller for stepMotor")
+		(date "2025-04-02")
+		(rev "ver. 0.1")
+		(company "EaCode")
+		(comment 1 "HgMJK, N.bane")
+	)
 	(lib_symbols
 		(symbol "Device:LED_Dual_AAK"
 			(pin_names
@@ -2421,6 +2428,36 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "OnBoard connections\nULN2003 Driver board"
+		(exclude_from_sim no)
+		(at 168.148 62.738 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "83fadcf3-3234-47f3-8769-476623aab6dd")
+	)
+	(text "28BYJ-48 Stepper Motor 12V"
+		(exclude_from_sim no)
+		(at 187.706 56.388 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "a9662b87-a466-4ef5-aa10-e1a2afd7c2c5")
+	)
+	(text "Stepmotor Driver Board ULN2003 Arduino"
+		(exclude_from_sim no)
+		(at 145.288 45.466 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e1a4cf4f-da17-4429-9bee-436559adf21d")
+	)
 	(junction
 		(at 74.93 45.72)
 		(diameter 0)
@@ -3235,7 +3272,7 @@
 	)
 	(symbol
 		(lib_id "Motor:Stepper_Motor_unipolar_5pin")
-		(at 185.42 66.04 0)
+		(at 187.96 66.04 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3243,7 +3280,7 @@
 		(dnp no)
 		(uuid "7700c7db-f005-47eb-b2ff-dd5b17074547")
 		(property "Reference" "M1"
-			(at 190.5 63.792 0)
+			(at 193.04 63.792 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3252,7 +3289,7 @@
 			)
 		)
 		(property "Value" "Stepper_Motor_unipolar_5pin"
-			(at 178.308 71.12 0)
+			(at 180.848 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3261,7 +3298,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 185.674 66.294 0)
+			(at 188.214 66.294 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3270,7 +3307,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.infineon.com/dgdl/Application-Note-TLE8110EE_driving_UniPolarStepperMotor_V1.1.pdf?fileId=db3a30431be39b97011be5d0aa0a00b0"
-			(at 185.674 66.294 0)
+			(at 188.214 66.294 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3279,7 +3316,7 @@
 			)
 		)
 		(property "Description" "5-wire unipolar stepper motor"
-			(at 185.42 66.04 0)
+			(at 187.96 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
