@@ -1,39 +1,41 @@
-/*
+/* THIS CODE IS FOR A ATTINY85 MCU DEV BOARD
 Project: HgMJK, Turntable for N-scale
-Version: V 1.0
+Version: RC 1.2.0
 Dev Code: HH
 Dev Mechanics: SBC
 
 Library: Accelstepper.h documentation homepage: 
 - https://www.airspayce.com/mikem/arduino/AccelStepper/index.html
 
-IDE: VS Code + PlatformIO (main.cpp) / Arduino IDE V.2 (HgMJK_Turntable_Arduino-Nano.ino)
+IDE: VS Code + PlatformIO
 
 Hardware:
-MCU: Arduino 328 UNO / NANO, MEGA2560
-1x 28BYJ-48 Stepper motor 12VDC stepper motors
+MCU: Attiny85
+1x 28BYJ-48 Stepper motor 12VDC (IN TEST ONLY 5VDC stepper motors)
 1x ULN2003 motordriver
 1x Potentiometer 10K
 1x LED (Red/Green)
 2x 360R resistors
 1x 9VDC PSU (for MCU board and ULN2003 module (stepM))
+  - IN TEST: 9 >> 5VDC Breadboard PSU
 
 Description:
-This code is intended to be used with 28BYJ-48 Stepper motor 12VDC.
+This code is intended to be used with 28BYJ-48 Stepper motor 12VDC (IN TEST ONLY 5VDC stepper motors).
 The code is for a turntable for N-scale, controlled by a ULN2003 motordriver and 10K potentiometer.
 
 
 ToDo:
-1. OK - test analogRead for potMeter_01 = A0
-  OK - test readings: max=1007, min=0, middel:(1007/2=503,5)=503
-  OK - set middel pos (stop stepM movement) > 501 | < 505 : to be adjusted in stepM move test
-2. OK - test stepM move according to analogRead potMeter_01
-  OK - TEST: adjusted potmeter values to: > 498 | < 508 :OK - to be adjusted if needed
-  OK - edit code for move speed. slow to faster in both ways CW and CCW
-3. Ok -  test with turntable
+ - edit pin connection to match Attiny85 pin's
+ - test analogRead for potMeter_01 = A0
+ - test readings: max=1007, min=0, middel:(1007/2=503,5)=503
+ - set middel pos (stop stepM movement) > 501 | < 505 : to be adjusted in stepM move test
+ - test stepM move according to analogRead potMeter_01
+ - TEST: adjusted potmeter values to: > 498 | < 508 :OK - to be adjusted if needed
+ - edit code for move speed. slow to faster in both ways CW and CCW
+ -  test with turntable
 
-4. OK - in-prograss: cleanup code and comments
-5. OK - redraw schematic diagram and publish to github repo: HgMJK_N-bane_Turntable
+ - in-prograss: cleanup code and comments
+ - redraw schematic diagram and publish to github repo: HgMJK_N-bane_Turntable
 
 ________________________________________________________________________ */
 
@@ -50,8 +52,8 @@ int delay_2 = 500;
 // define Pin constants
 const int potMeter_01 = A0; // Potentiometer Pin
 
-const int LED_01 = 2; // Red LED Pin - stepM not moving
-const int LED_02 = 3; // Green LED Pin - stepM moving 
+const int LED_01 = 1; // Green LED Pin - stepM moving
+//const int LED_02 = 3; // Red LED Pin - stepM not moving
 
 const int stepM1_IN1 = 8;  // StepMotor Pin
 const int stepM1_IN2 = 9;
@@ -72,24 +74,24 @@ void moveStepM (){
 
   stepM1.setCurrentPosition(0);
 
-  while ( (analogRead(potMeter_01) < 490) | (analogRead(potMeter_01) > 520) ) {
+  while ( (analogRead(potMeter_01) < 498) | (analogRead(potMeter_01) > 508) ) {
     
-    if (analogRead(potMeter_01) >520){
+    if (analogRead(potMeter_01) >508){
       Serial.println("move stepM CW");
       
       // read potmeter value and calculate steps
-      int16_t steps = -520 + (analogRead(potMeter_01));
+      int16_t steps = -508 + (analogRead(potMeter_01));
       Serial.print("steps: ");
       Serial.println(steps);
       stepM1.setSpeed(steps);      
       stepM1.runSpeed();
     } // END if
 
-    if (analogRead(potMeter_01) < 490){
+    if (analogRead(potMeter_01) < 498){
       Serial.println("move stepM CCW");
 
       // read potmeter value and calculate steps
-      int16_t steps = -(490 - analogRead(potMeter_01));
+      int16_t steps = -(498 - analogRead(potMeter_01));
       Serial.print("steps: ");
       Serial.println(steps);
       stepM1.setSpeed(steps);
@@ -130,7 +132,7 @@ void loop(){
   Serial.println(analogRead(potMeter_01));
   delay(delay_1);
 
-  while ( (analogRead(potMeter_01) < 490) | (analogRead(potMeter_01) > 520) ) {
+  while ( (analogRead(potMeter_01) < 495) | (analogRead(potMeter_01) > 510) ) {
     moveStepM();  
   }
   
